@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>workflows</title>
+<title>Running workflows on Dardel</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -106,7 +106,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </head>
 
-<body class="nav-sidebar docked fullcontent">
+<body class="nav-sidebar docked">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -181,15 +181,42 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#installing-pixi" id="toc-installing-pixi" class="nav-link active" data-scroll-target="#installing-pixi">Installing pixi</a></li>
+  <li><a href="#how-to-activate-a-workflow-environment" id="toc-how-to-activate-a-workflow-environment" class="nav-link" data-scroll-target="#how-to-activate-a-workflow-environment">How to activate a workflow environment</a></li>
+  <li><a href="#resource-settings-slurm-account-runtime-etc" id="toc-resource-settings-slurm-account-runtime-etc" class="nav-link" data-scroll-target="#resource-settings-slurm-account-runtime-etc">Resource settings (slurm account, runtime etc)</a>
+  <ul class="collapse">
+  <li><a href="#running-a-workflow" id="toc-running-a-workflow" class="nav-link" data-scroll-target="#running-a-workflow">Running a workflow</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Running workflows on Dardel</h1>
+</div>
 
 
 
+<div class="quarto-title-meta">
 
-<section id="running-workflows-on-dardel" class="level1">
-<h1>Running workflows on Dardel</h1>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
 <p>Workflows are centrally installed under <code>/cfs/klemming/projects/snic/snic2020-16-248/workflows</code> and are managed by the package <a href="https://snk.wytamma.com/">snk</a> which turns snakemake workflows into command-line tools. Thus instead of doing cloning workflows from GitHub into some directory on Dardel, then executing <code>snakemake ...</code> within the cloned directory you activate an environment from the root of the storage project (<code>/cfs/klemming/projects/snic/snic2020-16-248</code>) then run <em>e.g.</em> <code>amplicon-multi-cutadapt ...</code> in whatever directory you want.</p>
 <section id="installing-pixi" class="level2">
 <h2 class="anchored" data-anchor-id="installing-pixi">Installing pixi</h2>
@@ -233,7 +260,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>```bash</p>
 
 
-</section>
 </section>
 </section>
 </section>
