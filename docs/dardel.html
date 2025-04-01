@@ -115,7 +115,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./dardel.html">Dardel tips</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./dardel.html">Dardel system</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -141,19 +141,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Home</span></a>
   </div>
 </li>
-        <li class="sidebar-item sidebar-item-section">
-      <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">Dardel tips</span></span>
-  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./dardel.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Dardel system</span></a>
+  </div>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./workflows.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Workflows</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./amplicon-multi-cutadapt.html" class="sidebar-item-text sidebar-link">
@@ -184,8 +186,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#dardel-guide" id="toc-dardel-guide" class="nav-link active" data-scroll-target="#dardel-guide">Dardel guide</a>
-  <ul class="collapse">
+  <li><a href="#temporary-directory" id="toc-temporary-directory" class="nav-link active" data-scroll-target="#temporary-directory">Temporary directory</a></li>
   <li><a href="#setting-up-ssh-keys" id="toc-setting-up-ssh-keys" class="nav-link" data-scroll-target="#setting-up-ssh-keys">Setting up SSH keys</a></li>
   <li><a href="#setting-up-ssh-keys-for-github" id="toc-setting-up-ssh-keys-for-github" class="nav-link" data-scroll-target="#setting-up-ssh-keys-for-github">Setting up ssh keys for GitHub</a></li>
   <li><a href="#use-a-terminal-multiplexer" id="toc-use-a-terminal-multiplexer" class="nav-link" data-scroll-target="#use-a-terminal-multiplexer">Use a terminal multiplexer</a>
@@ -195,7 +196,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></li>
   <li><a href="#directories-and-files-in-this-project-root-folder" id="toc-directories-and-files-in-this-project-root-folder" class="nav-link" data-scroll-target="#directories-and-files-in-this-project-root-folder">Directories and files in this project root folder</a></li>
   <li><a href="#directory-structure" id="toc-directory-structure" class="nav-link" data-scroll-target="#directory-structure">Directory structure</a></li>
-  </ul></li>
   </ul>
 </nav>
     </div>
@@ -205,6 +205,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">Dardel tips</h1>
+<p class="subtitle lead">Useful information for working on the Dardel cluster</p>
 </div>
 
 
@@ -221,9 +222,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="dardel-guide" class="level1">
-<h1>Dardel guide</h1>
-<p>This page contains some useful information for working on the Dardel cluster.</p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -237,7 +235,10 @@ No backup
 <p>There is no backup on Dardel. All data that cannot be easily recreated should therefore have an alternative backup.</p>
 </div>
 </div>
+<section id="temporary-directory" class="level2">
+<h2 class="anchored" data-anchor-id="temporary-directory">Temporary directory</h2>
 <p>The environment variable <code>$PDC_TMP</code> points to your personal scratch space under <code>/cfs/klemming/scratch</code>. This scratch space has no limitation in terms of storage, but files not updated in 30 days will be automatically removed. Therefore it’s a great place to store temporary downloads, cache directories etc.</p>
+</section>
 <section id="setting-up-ssh-keys" class="level2">
 <h2 class="anchored" data-anchor-id="setting-up-ssh-keys">Setting up SSH keys</h2>
 <p>To access the Dardel cluster, you need to generate a SSH key on the computer you will be connecting from (<em>e.g.</em> your laptop). On Linux/Mac, open a terminal and run:</p>
@@ -308,7 +309,6 @@ raw_data/ # Raw data (e.g. fastq files)</code></pre>
   │   │         ├── ASV_codon_filtered.table.tsv # Counts for filtered ASVs</code></pre>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->

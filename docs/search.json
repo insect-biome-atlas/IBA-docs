@@ -4,59 +4,69 @@
     "href": "dardel.html",
     "title": "Dardel tips",
     "section": "",
-    "text": "This page contains some useful information for working on the Dardel cluster.\n\n\n\n\n\n\nNo backup\n\n\n\nThere is no backup on Dardel. All data that cannot be easily recreated should therefore have an alternative backup.\n\n\nThe environment variable $PDC_TMP points to your personal scratch space under /cfs/klemming/scratch. This scratch space has no limitation in terms of storage, but files not updated in 30 days will be automatically removed. Therefore it’s a great place to store temporary downloads, cache directories etc.\n\n\nTo access the Dardel cluster, you need to generate a SSH key on the computer you will be connecting from (e.g. your laptop). On Linux/Mac, open a terminal and run:\nssh-keygen -t ed25519 -f ~/.ssh/id-ed25519-pdc\nYou will see the following:\nGenerating public/private ed25519 key pair.\nEnter passphrase (empty for no passphrase):\nJust press Enter (and once again again to confirm) to leave the passphrase empty. You will now have two files in your ~/.ssh directory: id-ed25519-pdc (private key) and id-ed25519-pdc.pub (public key).\nYou will now have to register the public key at PDC by going go https://loginportal.pdc.kth.se/ and logging in. On the “Key Management” page, click “Add new key” and either upload the id-ed25519-pdc.pub file or paste its contents in the “SSH public key” field. Give the key a name (can be anything) and click Save.\nYou can now connect to Dardel by running (replace &lt;your-dardel-username&gt; with your Dardel username):\nssh -i ~/.ssh/id-ed25519-pdc &lt;your-dardel-username&gt;@dardel.pdc.kth.se\nTo shorten that command you can create a file called config inside your ~/.ssh directory with the following content (replace &lt;your-dardel-username&gt; with your Dardel username):\nHost dardel\n   IdentityFile ~/.ssh/id-ed25519-pdc\n   HostName dardel.pdc.kth.se\n   User &lt;your-dardel-username&gt;\nThen you connect to Dardel by running:\nssh dardel\n\n\n\nIf you want to clone repositories from GitHub on Dardel, you need to generate a key on Dardel and add it to your GitHub account. On Dardel, run (replace your_email@example.com with the email associated with your GitHub account):\nssh-keygen -t ed25519 -C \"your_email@example.com\"\nThis will generate a private key in ~/.ssh/id_ed25519 and a public key in ~/.ssh/id_ed25519.pub. You can now add the public key to your GitHub account. Go to https://github.com/settings/keys (login if necessary) and click “New SSH key”. Paste the contents of ~/.ssh/id_ed25519.pub into the “Key” field and give the key a name (can be anything). Click “Add SSH key”.\nOn Dardel, edit (or create) the ~/.ssh/config file and add the following:\nHost github.com\n    AddKeysToAgent yes\n    IdentityFile ~/.ssh/id_ed25519\n\n\n\nTerminal multiplexers allow you to run multiple terminal sessions in a single terminal window. This is useful for running long jobs that you don’t want to be interrupted if you lose your connection to the server. The two most popular terminal multiplexers are tmux and screen.\n\n\ntmux\nA tmux ‘cheat sheet’ can be found here.\n\n\n\nscreen\nScreen ‘cheat sheets’ can be found here and here.\n\n\n\n\ndb/ # Databases\ndocs/ # Documentation of pipelines and other useful information\ngit/ # Cloned repositories from GitHub (as well as copies of folders from Rackham and results)\nprocessed_data/ # Processed data (e.g. amplicon datasets downloaded from Figshare)\nprojects/ # Main directory for all your projects\nraw_data/ # Raw data (e.g. fastq files)\n\n\n\nThe following is a suggested directory structure for your work on Dardel. The projects/ directory could contain subdirectories for analysis of each new sequencing batch. The actual raw data for the sequencing should be stored under the raw_data/ directory (and this data should also have a backup outside of Dardel). Within each batch subdirectory you could create directories amplicon-multi-cutadapt and ampliseq for the output of the respective pipelines.\nTaking the P30904 batch as an example, the directory structure could look like this:\nprojects/\n  ├── P30904/\n  │   ├── amplicon-multi-cutadapt/\n  │   │   ├── results/\n  │   │   │   ├── cutadapt/\n  │   │   │   │   ├── P30904*_s4_R*.fastq.gz # Trimmed fastq files for each sample\n  │   │   ├── ampliseq_sample_sheet.tsv # Sample sheet for Ampliseq pipeline\n  │   ├── ampliseq/\n  │   │   ├── results/\n  │   │     ├── codon_filter/\n  │   │         ├── ASV_codon_filtered.fna # ASV sequences after dada2, length filtering and codon filtering\n  │   │         ├── ASV_codon_filtered.table.tsv # Counts for filtered ASVs",
+    "text": "No backup\n\n\n\nThere is no backup on Dardel. All data that cannot be easily recreated should therefore have an alternative backup.",
     "crumbs": [
-      "Dardel tips"
+      "Dardel system"
+    ]
+  },
+  {
+    "objectID": "dardel.html#temporary-directory",
+    "href": "dardel.html#temporary-directory",
+    "title": "Dardel tips",
+    "section": "Temporary directory",
+    "text": "Temporary directory\nThe environment variable $PDC_TMP points to your personal scratch space under /cfs/klemming/scratch. This scratch space has no limitation in terms of storage, but files not updated in 30 days will be automatically removed. Therefore it’s a great place to store temporary downloads, cache directories etc.",
+    "crumbs": [
+      "Dardel system"
     ]
   },
   {
     "objectID": "dardel.html#setting-up-ssh-keys",
     "href": "dardel.html#setting-up-ssh-keys",
     "title": "Dardel tips",
-    "section": "",
-    "text": "To access the Dardel cluster, you need to generate a SSH key on the computer you will be connecting from (e.g. your laptop). On Linux/Mac, open a terminal and run:\nssh-keygen -t ed25519 -f ~/.ssh/id-ed25519-pdc\nYou will see the following:\nGenerating public/private ed25519 key pair.\nEnter passphrase (empty for no passphrase):\nJust press Enter (and once again again to confirm) to leave the passphrase empty. You will now have two files in your ~/.ssh directory: id-ed25519-pdc (private key) and id-ed25519-pdc.pub (public key).\nYou will now have to register the public key at PDC by going go https://loginportal.pdc.kth.se/ and logging in. On the “Key Management” page, click “Add new key” and either upload the id-ed25519-pdc.pub file or paste its contents in the “SSH public key” field. Give the key a name (can be anything) and click Save.\nYou can now connect to Dardel by running (replace &lt;your-dardel-username&gt; with your Dardel username):\nssh -i ~/.ssh/id-ed25519-pdc &lt;your-dardel-username&gt;@dardel.pdc.kth.se\nTo shorten that command you can create a file called config inside your ~/.ssh directory with the following content (replace &lt;your-dardel-username&gt; with your Dardel username):\nHost dardel\n   IdentityFile ~/.ssh/id-ed25519-pdc\n   HostName dardel.pdc.kth.se\n   User &lt;your-dardel-username&gt;\nThen you connect to Dardel by running:\nssh dardel",
+    "section": "Setting up SSH keys",
+    "text": "Setting up SSH keys\nTo access the Dardel cluster, you need to generate a SSH key on the computer you will be connecting from (e.g. your laptop). On Linux/Mac, open a terminal and run:\nssh-keygen -t ed25519 -f ~/.ssh/id-ed25519-pdc\nYou will see the following:\nGenerating public/private ed25519 key pair.\nEnter passphrase (empty for no passphrase):\nJust press Enter (and once again again to confirm) to leave the passphrase empty. You will now have two files in your ~/.ssh directory: id-ed25519-pdc (private key) and id-ed25519-pdc.pub (public key).\nYou will now have to register the public key at PDC by going go https://loginportal.pdc.kth.se/ and logging in. On the “Key Management” page, click “Add new key” and either upload the id-ed25519-pdc.pub file or paste its contents in the “SSH public key” field. Give the key a name (can be anything) and click Save.\nYou can now connect to Dardel by running (replace &lt;your-dardel-username&gt; with your Dardel username):\nssh -i ~/.ssh/id-ed25519-pdc &lt;your-dardel-username&gt;@dardel.pdc.kth.se\nTo shorten that command you can create a file called config inside your ~/.ssh directory with the following content (replace &lt;your-dardel-username&gt; with your Dardel username):\nHost dardel\n   IdentityFile ~/.ssh/id-ed25519-pdc\n   HostName dardel.pdc.kth.se\n   User &lt;your-dardel-username&gt;\nThen you connect to Dardel by running:\nssh dardel",
     "crumbs": [
-      "Dardel tips"
+      "Dardel system"
     ]
   },
   {
     "objectID": "dardel.html#setting-up-ssh-keys-for-github",
     "href": "dardel.html#setting-up-ssh-keys-for-github",
     "title": "Dardel tips",
-    "section": "",
-    "text": "If you want to clone repositories from GitHub on Dardel, you need to generate a key on Dardel and add it to your GitHub account. On Dardel, run (replace your_email@example.com with the email associated with your GitHub account):\nssh-keygen -t ed25519 -C \"your_email@example.com\"\nThis will generate a private key in ~/.ssh/id_ed25519 and a public key in ~/.ssh/id_ed25519.pub. You can now add the public key to your GitHub account. Go to https://github.com/settings/keys (login if necessary) and click “New SSH key”. Paste the contents of ~/.ssh/id_ed25519.pub into the “Key” field and give the key a name (can be anything). Click “Add SSH key”.\nOn Dardel, edit (or create) the ~/.ssh/config file and add the following:\nHost github.com\n    AddKeysToAgent yes\n    IdentityFile ~/.ssh/id_ed25519",
+    "section": "Setting up ssh keys for GitHub",
+    "text": "Setting up ssh keys for GitHub\nIf you want to clone repositories from GitHub on Dardel, you need to generate a key on Dardel and add it to your GitHub account. On Dardel, run (replace your_email@example.com with the email associated with your GitHub account):\nssh-keygen -t ed25519 -C \"your_email@example.com\"\nThis will generate a private key in ~/.ssh/id_ed25519 and a public key in ~/.ssh/id_ed25519.pub. You can now add the public key to your GitHub account. Go to https://github.com/settings/keys (login if necessary) and click “New SSH key”. Paste the contents of ~/.ssh/id_ed25519.pub into the “Key” field and give the key a name (can be anything). Click “Add SSH key”.\nOn Dardel, edit (or create) the ~/.ssh/config file and add the following:\nHost github.com\n    AddKeysToAgent yes\n    IdentityFile ~/.ssh/id_ed25519",
     "crumbs": [
-      "Dardel tips"
+      "Dardel system"
     ]
   },
   {
     "objectID": "dardel.html#use-a-terminal-multiplexer",
     "href": "dardel.html#use-a-terminal-multiplexer",
     "title": "Dardel tips",
-    "section": "",
-    "text": "Terminal multiplexers allow you to run multiple terminal sessions in a single terminal window. This is useful for running long jobs that you don’t want to be interrupted if you lose your connection to the server. The two most popular terminal multiplexers are tmux and screen.\n\n\ntmux\nA tmux ‘cheat sheet’ can be found here.\n\n\n\nscreen\nScreen ‘cheat sheets’ can be found here and here.",
+    "section": "Use a terminal multiplexer",
+    "text": "Use a terminal multiplexer\nTerminal multiplexers allow you to run multiple terminal sessions in a single terminal window. This is useful for running long jobs that you don’t want to be interrupted if you lose your connection to the server. The two most popular terminal multiplexers are tmux and screen.\n\nUsing tmux\ntmux\nA tmux ‘cheat sheet’ can be found here.\n\n\nUsing screen\nscreen\nScreen ‘cheat sheets’ can be found here and here.",
     "crumbs": [
-      "Dardel tips"
+      "Dardel system"
     ]
   },
   {
     "objectID": "dardel.html#directories-and-files-in-this-project-root-folder",
     "href": "dardel.html#directories-and-files-in-this-project-root-folder",
     "title": "Dardel tips",
-    "section": "",
-    "text": "db/ # Databases\ndocs/ # Documentation of pipelines and other useful information\ngit/ # Cloned repositories from GitHub (as well as copies of folders from Rackham and results)\nprocessed_data/ # Processed data (e.g. amplicon datasets downloaded from Figshare)\nprojects/ # Main directory for all your projects\nraw_data/ # Raw data (e.g. fastq files)",
+    "section": "Directories and files in this project root folder",
+    "text": "Directories and files in this project root folder\ndb/ # Databases\ndocs/ # Documentation of pipelines and other useful information\ngit/ # Cloned repositories from GitHub (as well as copies of folders from Rackham and results)\nprocessed_data/ # Processed data (e.g. amplicon datasets downloaded from Figshare)\nprojects/ # Main directory for all your projects\nraw_data/ # Raw data (e.g. fastq files)",
     "crumbs": [
-      "Dardel tips"
+      "Dardel system"
     ]
   },
   {
     "objectID": "dardel.html#directory-structure",
     "href": "dardel.html#directory-structure",
     "title": "Dardel tips",
-    "section": "",
-    "text": "The following is a suggested directory structure for your work on Dardel. The projects/ directory could contain subdirectories for analysis of each new sequencing batch. The actual raw data for the sequencing should be stored under the raw_data/ directory (and this data should also have a backup outside of Dardel). Within each batch subdirectory you could create directories amplicon-multi-cutadapt and ampliseq for the output of the respective pipelines.\nTaking the P30904 batch as an example, the directory structure could look like this:\nprojects/\n  ├── P30904/\n  │   ├── amplicon-multi-cutadapt/\n  │   │   ├── results/\n  │   │   │   ├── cutadapt/\n  │   │   │   │   ├── P30904*_s4_R*.fastq.gz # Trimmed fastq files for each sample\n  │   │   ├── ampliseq_sample_sheet.tsv # Sample sheet for Ampliseq pipeline\n  │   ├── ampliseq/\n  │   │   ├── results/\n  │   │     ├── codon_filter/\n  │   │         ├── ASV_codon_filtered.fna # ASV sequences after dada2, length filtering and codon filtering\n  │   │         ├── ASV_codon_filtered.table.tsv # Counts for filtered ASVs",
+    "section": "Directory structure",
+    "text": "Directory structure\nThe following is a suggested directory structure for your work on Dardel. The projects/ directory could contain subdirectories for analysis of each new sequencing batch. The actual raw data for the sequencing should be stored under the raw_data/ directory (and this data should also have a backup outside of Dardel). Within each batch subdirectory you could create directories amplicon-multi-cutadapt and ampliseq for the output of the respective pipelines.\nTaking the P30904 batch as an example, the directory structure could look like this:\nprojects/\n  ├── P30904/\n  │   ├── amplicon-multi-cutadapt/\n  │   │   ├── results/\n  │   │   │   ├── cutadapt/\n  │   │   │   │   ├── P30904*_s4_R*.fastq.gz # Trimmed fastq files for each sample\n  │   │   ├── ampliseq_sample_sheet.tsv # Sample sheet for Ampliseq pipeline\n  │   ├── ampliseq/\n  │   │   ├── results/\n  │   │     ├── codon_filter/\n  │   │         ├── ASV_codon_filtered.fna # ASV sequences after dada2, length filtering and codon filtering\n  │   │         ├── ASV_codon_filtered.table.tsv # Counts for filtered ASVs",
     "crumbs": [
-      "Dardel tips"
+      "Dardel system"
     ]
   },
   {
