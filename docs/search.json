@@ -28,6 +28,13 @@
     "text": "For the Snakemake workflows (happ/amplicon-multi-cutadapt) their respective environment is set up to use a Dardel-specific configuration profile which sets the compute account and other resources. The path to this profile is set in the $SNAKEMAKE_PROFILE environment variable. If you need to edit for example the compute account you can open the file $SNAKEMAKE_PROFILE/config.yaml with a text editor and change the slurm_account: setting, then save the file.\nFor the ampliseq workflow resources are handled slightly differently. See below.\n\n\n\n\nWhen you activate an environment for one of the two Snakemake workflows (amplicon-multi-cutadapt and happ), the workflows become available as command line tools. This means you don’t have to interact with the workflow via Snakemake and can skip several of the additional flags.\nLet’s use the amplicon-multi-cutadapt workflow as an example. After activating the environment as described above, you can run the workflow with:\namplicon-multi-cutadapt run --config &lt;path-to-configfile&gt;\nThe only thing you need to provide is the path to a configuration file that contains parameters specific to your run. Let’s say you want to run the workflow for a dataset called batch1. Create a subdirectory under projects/ called batch1 and navigate to it. Then create a configuration file with default settings by running:\namplicon-multi-cutadapt config &gt; config.yml\nNow you can edit the config.yml with the parameters specific to your run. When you’re done, you can run the workflow with:\namplicon-multi-cutadapt run --configfile config.yml\nThe same basic principle applies to the happ workflow. For more details, see the documentation for each of these workflows in the /cfs/klemming/projects/snic/snic2020-16-248/docs/ directory.\n\n\n\nThe ampliseq workflow differs slightly since this is a Nextflow workflow. When you activate the ampliseq environment you will have to start the workflow using nextflow run, but the path to workflow is stored in the $AMPLISEQ environment variable. To run the workflow, navigate to the project root directory and run:\n```bash"
   },
   {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Insect Biome Atlas",
+    "section": "",
+    "text": "Documentation for the Insect Biome Atlas project."
+  },
+  {
     "objectID": "ampliseq.html",
     "href": "ampliseq.html",
     "title": "Setting up and using the ampliseq pipeline",
