@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>ampliseq</title>
+<title>Ampliseq pipeline</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -104,7 +104,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -122,11 +122,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
   <li class="nav-item">
     <a class="nav-link active" href="./ampliseq.html" aria-current="page"> 
-<span class="menu-text">Setting up and using the ampliseq pipeline</span></a>
+<span class="menu-text">Ampliseq pipeline</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./happ.html"> 
-<span class="menu-text">Setting up and running the HAPP pipeline</span></a>
+<span class="menu-text">HAPP pipeline</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./workflows.html"> 
@@ -143,15 +143,45 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#use-a-terminal-multiplexer" id="toc-use-a-terminal-multiplexer" class="nav-link active" data-scroll-target="#use-a-terminal-multiplexer">Use a terminal multiplexer</a>
+  <ul class="collapse">
+  <li><a href="#using-tmux" id="toc-using-tmux" class="nav-link" data-scroll-target="#using-tmux">Using <code>tmux</code></a></li>
+  <li><a href="#using-screen" id="toc-using-screen" class="nav-link" data-scroll-target="#using-screen">Using <code>screen</code></a></li>
+  </ul></li>
+  <li><a href="#setting-up-the-ampliseq-pipeline" id="toc-setting-up-the-ampliseq-pipeline" class="nav-link" data-scroll-target="#setting-up-the-ampliseq-pipeline">Setting up the ampliseq pipeline</a></li>
+  <li><a href="#example-run" id="toc-example-run" class="nav-link" data-scroll-target="#example-run">Example run</a></li>
+  <li><a href="#further-configuration" id="toc-further-configuration" class="nav-link" data-scroll-target="#further-configuration">Further configuration</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Ampliseq pipeline</h1>
+<p class="subtitle lead">Setting up and using the ampliseq pipeline</p>
+</div>
 
 
 
+<div class="quarto-title-meta">
 
-<section id="setting-up-and-using-the-ampliseq-pipeline" class="level1">
-<h1>Setting up and using the ampliseq pipeline</h1>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
 <section id="use-a-terminal-multiplexer" class="level2">
 <h2 class="anchored" data-anchor-id="use-a-terminal-multiplexer">Use a terminal multiplexer</h2>
 <p>Terminal multiplexers allow you to run multiple terminal sessions in a single terminal window. This is useful for running long jobs that you don’t want to be interrupted if you lose your connection to the server. The two most popular terminal multiplexers are <code>tmux</code> and <code>screen</code>.</p>
@@ -232,7 +262,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">--skip_cutadapt</span> <span class="at">--skip_qiime</span> <span class="at">--skip_taxonomy</span> <span class="at">--skip_dada_taxonomy</span> <span class="at">--skip_dada_addspecies</span> <span class="at">--ignore_failed_trimming</span> <span class="at">--ignore_empty_input_files</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
