@@ -115,7 +115,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./dardel.html">Dardel tips &amp; tricks</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./dardel.html">Dardel tips</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -143,7 +143,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">Dardel tips &amp; tricks</span></span>
+ <span class="menu-text">Dardel tips</span></span>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
@@ -188,6 +188,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#setting-up-ssh-keys" id="toc-setting-up-ssh-keys" class="nav-link" data-scroll-target="#setting-up-ssh-keys">Setting up SSH keys</a></li>
   <li><a href="#setting-up-ssh-keys-for-github" id="toc-setting-up-ssh-keys-for-github" class="nav-link" data-scroll-target="#setting-up-ssh-keys-for-github">Setting up ssh keys for GitHub</a></li>
+  <li><a href="#use-a-terminal-multiplexer" id="toc-use-a-terminal-multiplexer" class="nav-link" data-scroll-target="#use-a-terminal-multiplexer">Use a terminal multiplexer</a>
+  <ul class="collapse">
+  <li><a href="#using-tmux" id="toc-using-tmux" class="nav-link" data-scroll-target="#using-tmux">Using <code>tmux</code></a></li>
+  <li><a href="#using-screen" id="toc-using-screen" class="nav-link" data-scroll-target="#using-screen">Using <code>screen</code></a></li>
+  </ul></li>
   <li><a href="#directories-and-files-in-this-project-root-folder" id="toc-directories-and-files-in-this-project-root-folder" class="nav-link" data-scroll-target="#directories-and-files-in-this-project-root-folder">Directories and files in this project root folder</a></li>
   <li><a href="#directory-structure" id="toc-directory-structure" class="nav-link" data-scroll-target="#directory-structure">Directory structure</a></li>
   </ul></li>
@@ -261,6 +266,20 @@ Enter passphrase (empty for no passphrase):</code></pre>
 <pre><code>Host github.com
     AddKeysToAgent yes
     IdentityFile ~/.ssh/id_ed25519</code></pre>
+</section>
+<section id="use-a-terminal-multiplexer" class="level2">
+<h2 class="anchored" data-anchor-id="use-a-terminal-multiplexer">Use a terminal multiplexer</h2>
+<p>Terminal multiplexers allow you to run multiple terminal sessions in a single terminal window. This is useful for running long jobs that you don’t want to be interrupted if you lose your connection to the server. The two most popular terminal multiplexers are <code>tmux</code> and <code>screen</code>.</p>
+<section id="using-tmux" class="level3">
+<h3 class="anchored" data-anchor-id="using-tmux">Using <code>tmux</code></h3>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">tmux</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>A tmux ‘cheat sheet’ can be found <a href="https://tmuxcheatsheet.com/">here</a>.</p>
+</section>
+<section id="using-screen" class="level3">
+<h3 class="anchored" data-anchor-id="using-screen">Using <code>screen</code></h3>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">screen</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Screen ‘cheat sheets’ can be found <a href="https://gist.github.com/jctosta/af918e1618682638aa82">here</a> and <a href="https://devhints.io/screen">here</a>.</p>
+</section>
 </section>
 <section id="directories-and-files-in-this-project-root-folder" class="level2">
 <h2 class="anchored" data-anchor-id="directories-and-files-in-this-project-root-folder">Directories and files in this project root folder</h2>

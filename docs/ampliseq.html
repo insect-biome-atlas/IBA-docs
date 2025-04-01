@@ -143,7 +143,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">Dardel tips &amp; tricks</span></span>
+ <span class="menu-text">Dardel tips</span></span>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
@@ -184,12 +184,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#use-a-terminal-multiplexer" id="toc-use-a-terminal-multiplexer" class="nav-link active" data-scroll-target="#use-a-terminal-multiplexer">Use a terminal multiplexer</a>
-  <ul class="collapse">
-  <li><a href="#using-tmux" id="toc-using-tmux" class="nav-link" data-scroll-target="#using-tmux">Using <code>tmux</code></a></li>
-  <li><a href="#using-screen" id="toc-using-screen" class="nav-link" data-scroll-target="#using-screen">Using <code>screen</code></a></li>
-  </ul></li>
-  <li><a href="#setting-up-the-ampliseq-pipeline" id="toc-setting-up-the-ampliseq-pipeline" class="nav-link" data-scroll-target="#setting-up-the-ampliseq-pipeline">Setting up the ampliseq pipeline</a></li>
+  <li><a href="#setting-up-the-ampliseq-pipeline" id="toc-setting-up-the-ampliseq-pipeline" class="nav-link active" data-scroll-target="#setting-up-the-ampliseq-pipeline">Setting up the ampliseq pipeline</a></li>
   <li><a href="#example-run" id="toc-example-run" class="nav-link" data-scroll-target="#example-run">Example run</a></li>
   <li><a href="#further-configuration" id="toc-further-configuration" class="nav-link" data-scroll-target="#further-configuration">Further configuration</a></li>
   </ul>
@@ -218,40 +213,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="use-a-terminal-multiplexer" class="level2">
-<h2 class="anchored" data-anchor-id="use-a-terminal-multiplexer">Use a terminal multiplexer</h2>
-<p>Terminal multiplexers allow you to run multiple terminal sessions in a single terminal window. This is useful for running long jobs that you don’t want to be interrupted if you lose your connection to the server. The two most popular terminal multiplexers are <code>tmux</code> and <code>screen</code>.</p>
-<section id="using-tmux" class="level3">
-<h3 class="anchored" data-anchor-id="using-tmux">Using <code>tmux</code></h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">tmux</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>A tmux ‘cheat sheet’ can be found <a href="https://tmuxcheatsheet.com/">here</a>.</p>
-</section>
-<section id="using-screen" class="level3">
-<h3 class="anchored" data-anchor-id="using-screen">Using <code>screen</code></h3>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">screen</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Screen ‘cheat sheets’ can be found <a href="https://gist.github.com/jctosta/af918e1618682638aa82">here</a> and <a href="https://devhints.io/screen">here</a>.</p>
-</section>
-</section>
 <section id="setting-up-the-ampliseq-pipeline" class="level2">
 <h2 class="anchored" data-anchor-id="setting-up-the-ampliseq-pipeline">Setting up the ampliseq pipeline</h2>
 <ol type="1">
 <li>Load the nextflow module and the apptainer module</li>
 </ol>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load nextflow</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load PDC apptainer</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load nextflow</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load PDC apptainer</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ol start="2" type="1">
 <li>Set environment variables</li>
 </ol>
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">NXF_HOME</span><span class="op">=</span><span class="st">"&lt;/path/to/where/you/will/run/ampliseq&gt;"</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">APPTAINER_BINDPATH</span><span class="op">=</span><span class="va">$PDC_TMP</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">APPTAINER_CACHEDIR</span><span class="op">=</span><span class="va">$PDC_TMP</span>/.cache/apptainer</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">NXF_HOME</span><span class="op">=</span><span class="st">"&lt;/path/to/where/you/will/run/ampliseq&gt;"</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">APPTAINER_BINDPATH</span><span class="op">=</span><span class="va">$PDC_TMP</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">APPTAINER_CACHEDIR</span><span class="op">=</span><span class="va">$PDC_TMP</span>/.cache/apptainer</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Note that you will also have to create the $PDC_TMP/.cache/apptainer directory <em>once</em>. You can do so with:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> <span class="at">-p</span> <span class="va">$PDC_TMP</span>/.cache/apptainer</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> <span class="at">-p</span> <span class="va">$PDC_TMP</span>/.cache/apptainer</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ol start="3" type="1">
 <li>Run pipeline</li>
 </ol>
 <p>The general syntax to running a Nextflow pipeline is:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">nextflow</span> run <span class="op">&lt;</span>pipeline<span class="op">&gt;</span> -r <span class="op">&lt;</span>release<span class="op">&gt;</span> -profile <span class="op">&lt;</span>profile<span class="op">&gt;</span> --project <span class="op">&lt;</span>project<span class="op">&gt;</span> --input <span class="op">&lt;</span>input<span class="op">&gt;</span> --outdir <span class="op">&lt;</span>outdir<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">nextflow</span> run <span class="op">&lt;</span>pipeline<span class="op">&gt;</span> -r <span class="op">&lt;</span>release<span class="op">&gt;</span> -profile <span class="op">&lt;</span>profile<span class="op">&gt;</span> --project <span class="op">&lt;</span>project<span class="op">&gt;</span> --input <span class="op">&lt;</span>input<span class="op">&gt;</span> --outdir <span class="op">&lt;</span>outdir<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Argument flags that begin with a single ‘-’ are Nextflow flags, while those that begin with a double ‘–’ are pipeline-specific flags.</p>
 <p>The <code>-r</code> flag is used to select a specific release of the pipeline. To see available releases, visit the pipeline’s GitHub page at https://github.com/nf-core/ampliseq/releases. At the time of writing, the latest release is <code>2.12.0</code>.</p>
 <p>The <code>-profile</code> flag is used to select a configuration profile for running the pipeline. This can be used to alter the resources allocated to the pipeline, among other things. The Dardel PDC profile for nf-core is available at https://nf-co.re/configs/pdc_kth and can be specified with <code>--profile pdc_kth</code>.</p>
@@ -277,25 +258,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="example-run" class="level2">
 <h2 class="anchored" data-anchor-id="example-run">Example run</h2>
-<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">nextflow</span> run nf-core/ampliseq <span class="at">-r</span> 2.12.0 <span class="at">-profile</span> pdc_kth <span class="at">--project</span> naiss2024-5-207 <span class="dt">\</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">--input</span> ampliseq_sample_sheet.tsv <span class="at">--outdir</span> results <span class="dt">\</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">--skip_cutadapt</span> <span class="at">--skip_qiime</span> <span class="at">--skip_taxonomy</span> <span class="at">--skip_dada_taxonomy</span> <span class="at">--skip_dada_addspecies</span> <span class="at">--ignore_failed_trimming</span> <span class="at">--ignore_empty_input_files</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">nextflow</span> run nf-core/ampliseq <span class="at">-r</span> 2.12.0 <span class="at">-profile</span> pdc_kth <span class="at">--project</span> naiss2024-5-207 <span class="dt">\</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">--input</span> ampliseq_sample_sheet.tsv <span class="at">--outdir</span> results <span class="dt">\</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">--skip_cutadapt</span> <span class="at">--skip_qiime</span> <span class="at">--skip_taxonomy</span> <span class="at">--skip_dada_taxonomy</span> <span class="at">--skip_dada_addspecies</span> <span class="at">--ignore_failed_trimming</span> <span class="at">--ignore_empty_input_files</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="further-configuration" class="level2">
 <h2 class="anchored" data-anchor-id="further-configuration">Further configuration</h2>
 <p>The <a href="https://nf-co.re/configs/pdc_kth">PDC profile</a> handles resources <em>etc.</em> for the pipeline on Dardel.</p>
 <p>Steps in the pipeline can be further configured by supplying an additional config file to nextflow. For instance, you can create a file called <code>nextflow.config</code> file and add the following (example for the <code>FASTQC</code> step:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="er">process</span> <span class="fu">{</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="er">withName</span><span class="fu">:</span> <span class="er">'NFCORE_AMPLISEQ:AMPLISEQ:FASTQC'</span> <span class="fu">{</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>        <span class="er">time</span> <span class="er">=</span> <span class="er">10.m</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>        <span class="er">cpus</span> <span class="er">=</span> <span class="er">1</span></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>        <span class="er">memory</span> <span class="er">=</span> <span class="er">1.GB</span></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">}</span></span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="er">process</span> <span class="fu">{</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="er">withName</span><span class="fu">:</span> <span class="er">'NFCORE_AMPLISEQ:AMPLISEQ:FASTQC'</span> <span class="fu">{</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>        <span class="er">time</span> <span class="er">=</span> <span class="er">10.m</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>        <span class="er">cpus</span> <span class="er">=</span> <span class="er">1</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>        <span class="er">memory</span> <span class="er">=</span> <span class="er">1.GB</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">}</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Then supply the config file to the pipeline:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">nextflow</span> run nf-core/ampliseq <span class="at">-r</span> 2.12.0 <span class="at">-profile</span> pdc_kth <span class="at">-c</span> nextflow.config <span class="at">--project</span> naiss2024-5-207 <span class="dt">\</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">--input</span> ampliseq_sample_sheet.tsv <span class="at">--outdir</span> results <span class="dt">\</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">--skip_cutadapt</span> <span class="at">--skip_qiime</span> <span class="at">--skip_taxonomy</span> <span class="at">--skip_dada_taxonomy</span> <span class="at">--skip_dada_addspecies</span> <span class="at">--ignore_failed_trimming</span> <span class="at">--ignore_empty_input_files</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">nextflow</span> run nf-core/ampliseq <span class="at">-r</span> 2.12.0 <span class="at">-profile</span> pdc_kth <span class="at">-c</span> nextflow.config <span class="at">--project</span> naiss2024-5-207 <span class="dt">\</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">--input</span> ampliseq_sample_sheet.tsv <span class="at">--outdir</span> results <span class="dt">\</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">--skip_cutadapt</span> <span class="at">--skip_qiime</span> <span class="at">--skip_taxonomy</span> <span class="at">--skip_dada_taxonomy</span> <span class="at">--skip_dada_addspecies</span> <span class="at">--ignore_failed_trimming</span> <span class="at">--ignore_empty_input_files</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
 </section>
