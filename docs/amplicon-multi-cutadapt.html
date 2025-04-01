@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>HAPP pipeline</title>
+<title>Amplicon-Multi-Cutadapt</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,40 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -64,7 +30,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./ampliseq.html" rel="prev">
+<link href="./ampliseq.html" rel="next">
+<link href="./workflows.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -114,7 +81,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./workflows.html">Workflows</a></li><li class="breadcrumb-item"><a href="./happ.html">HAPP pipeline</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./workflows.html">Workflows</a></li><li class="breadcrumb-item"><a href="./amplicon-multi-cutadapt.html">Amplicon-Multi-Cutadapt</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -155,7 +122,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./amplicon-multi-cutadapt.html" class="sidebar-item-text sidebar-link">
+  <a href="./amplicon-multi-cutadapt.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Amplicon-Multi-Cutadapt</span></a>
   </div>
 </li>
@@ -167,7 +134,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./happ.html" class="sidebar-item-text sidebar-link active">
+  <a href="./happ.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">HAPP pipeline</span></a>
   </div>
 </li>
@@ -178,34 +145,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#use-a-terminal-multiplexer" id="toc-use-a-terminal-multiplexer" class="nav-link active" data-scroll-target="#use-a-terminal-multiplexer">Use a terminal multiplexer</a>
-  <ul class="collapse">
-  <li><a href="#using-tmux" id="toc-using-tmux" class="nav-link" data-scroll-target="#using-tmux">Using <code>tmux</code></a></li>
-  <li><a href="#using-screen" id="toc-using-screen" class="nav-link" data-scroll-target="#using-screen">Using <code>screen</code></a></li>
-  </ul></li>
-  <li><a href="#setting-up-the-happ-pipeline" id="toc-setting-up-the-happ-pipeline" class="nav-link" data-scroll-target="#setting-up-the-happ-pipeline">Setting up the HAPP pipeline</a>
-  <ul class="collapse">
-  <li><a href="#installation" id="toc-installation" class="nav-link" data-scroll-target="#installation">Installation</a></li>
-  <li><a href="#choosing-a-branch-or-release" id="toc-choosing-a-branch-or-release" class="nav-link" data-scroll-target="#choosing-a-branch-or-release">Choosing a branch or release</a></li>
-  <li><a href="#set-up-the-environment" id="toc-set-up-the-environment" class="nav-link" data-scroll-target="#set-up-the-environment">Set up the environment</a></li>
-  </ul></li>
-  <li><a href="#configuring" id="toc-configuring" class="nav-link" data-scroll-target="#configuring">Configuring</a></li>
-  <li><a href="#input" id="toc-input" class="nav-link" data-scroll-target="#input">Input</a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./workflows.html">Workflows</a></li><li class="breadcrumb-item"><a href="./happ.html">HAPP pipeline</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./workflows.html">Workflows</a></li><li class="breadcrumb-item"><a href="./amplicon-multi-cutadapt.html">Amplicon-Multi-Cutadapt</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">HAPP pipeline</h1>
-<p class="subtitle lead">Setting up and running the HAPP pipeline</p>
+<h1 class="title">Amplicon-Multi-Cutadapt</h1>
+<p class="subtitle lead">Setting up and using the amplicon-multi-cutadapt pipeline</p>
 </div>
 
 
@@ -222,65 +171,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="use-a-terminal-multiplexer" class="level2">
-<h2 class="anchored" data-anchor-id="use-a-terminal-multiplexer">Use a terminal multiplexer</h2>
-<p>Terminal multiplexers allow you to run multiple terminal sessions in a single terminal window. This is useful for running long jobs that you don’t want to be interrupted if you lose your connection to the server. The two most popular terminal multiplexers are <code>tmux</code> and <code>screen</code>.</p>
-<section id="using-tmux" class="level3">
-<h3 class="anchored" data-anchor-id="using-tmux">Using <code>tmux</code></h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">tmux</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>A tmux ‘cheat sheet’ can be found <a href="https://tmuxcheatsheet.com/">here</a>.</p>
-</section>
-<section id="using-screen" class="level3">
-<h3 class="anchored" data-anchor-id="using-screen">Using <code>screen</code></h3>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">screen</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Screen ‘cheat sheets’ can be found <a href="https://gist.github.com/jctosta/af918e1618682638aa82">here</a> and <a href="https://devhints.io/screen">here</a>.</p>
-</section>
-</section>
-<section id="setting-up-the-happ-pipeline" class="level2">
-<h2 class="anchored" data-anchor-id="setting-up-the-happ-pipeline">Setting up the HAPP pipeline</h2>
-<section id="installation" class="level3">
-<h3 class="anchored" data-anchor-id="installation">Installation</h3>
-<p>Install the HAPP pipeline by cloning the repository somewhere on Dardel:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone git@github.com:insect-biome-atlas/happ.git</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>this will create a directory called <code>happ</code> in your current working directory. Change into the <code>happ</code> directory with <code>cd happ</code>.</p>
-</section>
-<section id="choosing-a-branch-or-release" class="level3">
-<h3 class="anchored" data-anchor-id="choosing-a-branch-or-release">Choosing a branch or release</h3>
-<p>By default the pipeline will use the latest commit from the <code>main</code> branch. To instead use the <code>devel</code> branch, run:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> switch devel</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>To use a specific release, switch to the corresponding tag (you can see available tags at https://github.com/insect-biome-atlas/happ/tags). For example, to use release v2.1:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> switch <span class="at">--detach</span> v2.1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="set-up-the-environment" class="level3">
-<h3 class="anchored" data-anchor-id="set-up-the-environment">Set up the environment</h3>
-<p>The software required for running the workflow can be installed with either <code>pixi</code> or <code>conda</code>.</p>
-<p>To install and activate the software environment with <code>pixi</code>, run:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pixi</span> shell</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>To install with conda, run:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> envs</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> env create <span class="at">-f</span> environment.yml <span class="at">-p</span> envs/happ</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>This will create a conda environment called <code>happ</code> in the <code>envs</code> directory. Activate the environment with:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> activate envs/happ</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Next load the apptainer module:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load PDC apptainer</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-</section>
-<section id="configuring" class="level2">
-<h2 class="anchored" data-anchor-id="configuring">Configuring</h2>
-<p>The default configuration of the pipeline is found in file <code>config/config.yml</code>. To configure the pipeline for your specific needs, copy this file to a new file inside the <code>config/</code> subdirectory, <em>e.g.</em> <code>config/config_myproject.yml</code>. Edit this file to suit your needs.</p>
-</section>
-<section id="input" class="level2">
-<h2 class="anchored" data-anchor-id="input">Input</h2>
-<p>The pipeline requires two input files as minimum:</p>
-<ol type="1">
-<li>A fasta file with ASV sequences, and</li>
-<li>A file with counts of each ASV in each sample.</li>
-</ol>
-<p>Both files must be tab-separated with the first column containing the ASV ids. Place these files in a subfolder of the <code>data/</code> directory, <em>e.g.</em> <code>data/myproject/</code> and name them <code>asv_seqs.fasta</code> and <code>asv_counts.tsv</code>, respectively.</p>
-<p>Then edit the <code>rundir</code> parameter of your configuration file so that it matches the name of the subdirectory under <code>data/</code> where you placed the input files (in the example above it would be <code>myproject</code>).</p>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -702,11 +594,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./ampliseq.html" class="pagination-link" aria-label="Ampliseq pipeline">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Ampliseq pipeline</span>
+      <a href="./workflows.html" class="pagination-link" aria-label="Workflows">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Workflows</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="./ampliseq.html" class="pagination-link" aria-label="Ampliseq pipeline">
+        <span class="nav-page-text">Ampliseq pipeline</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->

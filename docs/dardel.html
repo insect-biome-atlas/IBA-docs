@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>HAPP pipeline</title>
+<title>Dardel tips</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -64,7 +64,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./ampliseq.html" rel="prev">
+<link href="./workflows.html" rel="next">
+<link href="./index.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -114,7 +115,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./workflows.html">Workflows</a></li><li class="breadcrumb-item"><a href="./happ.html">HAPP pipeline</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./dardel.html">Dardel tips &amp; tricks</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -167,7 +168,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./happ.html" class="sidebar-item-text sidebar-link active">
+  <a href="./happ.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">HAPP pipeline</span></a>
   </div>
 </li>
@@ -183,29 +184,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#use-a-terminal-multiplexer" id="toc-use-a-terminal-multiplexer" class="nav-link active" data-scroll-target="#use-a-terminal-multiplexer">Use a terminal multiplexer</a>
+  <li><a href="#dardel-guide" id="toc-dardel-guide" class="nav-link active" data-scroll-target="#dardel-guide">Dardel guide</a>
   <ul class="collapse">
-  <li><a href="#using-tmux" id="toc-using-tmux" class="nav-link" data-scroll-target="#using-tmux">Using <code>tmux</code></a></li>
-  <li><a href="#using-screen" id="toc-using-screen" class="nav-link" data-scroll-target="#using-screen">Using <code>screen</code></a></li>
+  <li><a href="#setting-up-ssh-keys" id="toc-setting-up-ssh-keys" class="nav-link" data-scroll-target="#setting-up-ssh-keys">Setting up SSH keys</a></li>
+  <li><a href="#setting-up-ssh-keys-for-github" id="toc-setting-up-ssh-keys-for-github" class="nav-link" data-scroll-target="#setting-up-ssh-keys-for-github">Setting up ssh keys for GitHub</a></li>
+  <li><a href="#directories-and-files-in-this-project-root-folder" id="toc-directories-and-files-in-this-project-root-folder" class="nav-link" data-scroll-target="#directories-and-files-in-this-project-root-folder">Directories and files in this project root folder</a></li>
+  <li><a href="#directory-structure" id="toc-directory-structure" class="nav-link" data-scroll-target="#directory-structure">Directory structure</a></li>
   </ul></li>
-  <li><a href="#setting-up-the-happ-pipeline" id="toc-setting-up-the-happ-pipeline" class="nav-link" data-scroll-target="#setting-up-the-happ-pipeline">Setting up the HAPP pipeline</a>
-  <ul class="collapse">
-  <li><a href="#installation" id="toc-installation" class="nav-link" data-scroll-target="#installation">Installation</a></li>
-  <li><a href="#choosing-a-branch-or-release" id="toc-choosing-a-branch-or-release" class="nav-link" data-scroll-target="#choosing-a-branch-or-release">Choosing a branch or release</a></li>
-  <li><a href="#set-up-the-environment" id="toc-set-up-the-environment" class="nav-link" data-scroll-target="#set-up-the-environment">Set up the environment</a></li>
-  </ul></li>
-  <li><a href="#configuring" id="toc-configuring" class="nav-link" data-scroll-target="#configuring">Configuring</a></li>
-  <li><a href="#input" id="toc-input" class="nav-link" data-scroll-target="#input">Input</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./workflows.html">Workflows</a></li><li class="breadcrumb-item"><a href="./happ.html">HAPP pipeline</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">HAPP pipeline</h1>
-<p class="subtitle lead">Setting up and running the HAPP pipeline</p>
+<h1 class="title">Dardel tips</h1>
 </div>
 
 
@@ -222,64 +216,80 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="use-a-terminal-multiplexer" class="level2">
-<h2 class="anchored" data-anchor-id="use-a-terminal-multiplexer">Use a terminal multiplexer</h2>
-<p>Terminal multiplexers allow you to run multiple terminal sessions in a single terminal window. This is useful for running long jobs that you don’t want to be interrupted if you lose your connection to the server. The two most popular terminal multiplexers are <code>tmux</code> and <code>screen</code>.</p>
-<section id="using-tmux" class="level3">
-<h3 class="anchored" data-anchor-id="using-tmux">Using <code>tmux</code></h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">tmux</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>A tmux ‘cheat sheet’ can be found <a href="https://tmuxcheatsheet.com/">here</a>.</p>
+<section id="dardel-guide" class="level1">
+<h1>Dardel guide</h1>
+<p>This page contains some useful information for working on the Dardel cluster.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+No backup
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>There is no backup on Dardel. All data that cannot be easily recreated should therefore have an alternative backup.</p>
+</div>
+</div>
+<p>The environment variable <code>$PDC_TMP</code> points to your personal scratch space under <code>/cfs/klemming/scratch</code>. This scratch space has no limitation in terms of storage, but files not updated in 30 days will be automatically removed. Therefore it’s a great place to store temporary downloads, cache directories etc.</p>
+<section id="setting-up-ssh-keys" class="level2">
+<h2 class="anchored" data-anchor-id="setting-up-ssh-keys">Setting up SSH keys</h2>
+<p>To access the Dardel cluster, you need to generate a SSH key on the computer you will be connecting from (<em>e.g.</em> your laptop). On Linux/Mac, open a terminal and run:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh-keygen</span> <span class="at">-t</span> ed25519 <span class="at">-f</span> ~/.ssh/id-ed25519-pdc</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>You will see the following:</p>
+<pre><code>Generating public/private ed25519 key pair.
+Enter passphrase (empty for no passphrase):</code></pre>
+<p>Just press <code>Enter</code> (and once again again to confirm) to leave the passphrase empty. You will now have two files in your <code>~/.ssh</code> directory: <code>id-ed25519-pdc</code> (private key) and <code>id-ed25519-pdc.pub</code> (public key).</p>
+<p>You will now have to register the public key at PDC by going go https://loginportal.pdc.kth.se/ and logging in. On the “Key Management” page, click “Add new key” and either upload the <code>id-ed25519-pdc.pub</code> file or paste its contents in the “SSH public key” field. Give the key a name (can be anything) and click Save.</p>
+<p>You can now connect to Dardel by running (replace <code>&lt;your-dardel-username&gt;</code> with your Dardel username):</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh</span> <span class="at">-i</span> ~/.ssh/id-ed25519-pdc <span class="op">&lt;</span>your-dardel-username<span class="op">&gt;</span>@dardel.pdc.kth.se</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>To shorten that command you can create a file called <code>config</code> inside your <code>~/.ssh</code> directory with the following content (replace <code>&lt;your-dardel-username&gt;</code> with your Dardel username):</p>
+<pre><code>Host dardel
+   IdentityFile ~/.ssh/id-ed25519-pdc
+   HostName dardel.pdc.kth.se
+   User &lt;your-dardel-username&gt;</code></pre>
+<p>Then you connect to Dardel by running:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh</span> dardel</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="using-screen" class="level3">
-<h3 class="anchored" data-anchor-id="using-screen">Using <code>screen</code></h3>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">screen</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Screen ‘cheat sheets’ can be found <a href="https://gist.github.com/jctosta/af918e1618682638aa82">here</a> and <a href="https://devhints.io/screen">here</a>.</p>
+<section id="setting-up-ssh-keys-for-github" class="level2">
+<h2 class="anchored" data-anchor-id="setting-up-ssh-keys-for-github">Setting up ssh keys for GitHub</h2>
+<p>If you want to clone repositories from GitHub on Dardel, you need to generate a key on Dardel and add it to your GitHub account. On Dardel, run (replace <code>your_email@example.com</code> with the email associated with your GitHub account):</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh-keygen</span> <span class="at">-t</span> ed25519 <span class="at">-C</span> <span class="st">"your_email@example.com"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This will generate a private key in <code>~/.ssh/id_ed25519</code> and a public key in <code>~/.ssh/id_ed25519.pub</code>. You can now add the public key to your GitHub account. Go to https://github.com/settings/keys (login if necessary) and click “New SSH key”. Paste the contents of <code>~/.ssh/id_ed25519.pub</code> into the “Key” field and give the key a name (can be anything). Click “Add SSH key”.</p>
+<p>On Dardel, edit (or create) the <code>~/.ssh/config</code> file and add the following:</p>
+<pre><code>Host github.com
+    AddKeysToAgent yes
+    IdentityFile ~/.ssh/id_ed25519</code></pre>
 </section>
+<section id="directories-and-files-in-this-project-root-folder" class="level2">
+<h2 class="anchored" data-anchor-id="directories-and-files-in-this-project-root-folder">Directories and files in this project root folder</h2>
+<pre><code>db/ # Databases
+docs/ # Documentation of pipelines and other useful information
+git/ # Cloned repositories from GitHub (as well as copies of folders from Rackham and results)
+processed_data/ # Processed data (e.g. amplicon datasets downloaded from Figshare)
+projects/ # Main directory for all your projects
+raw_data/ # Raw data (e.g. fastq files)</code></pre>
 </section>
-<section id="setting-up-the-happ-pipeline" class="level2">
-<h2 class="anchored" data-anchor-id="setting-up-the-happ-pipeline">Setting up the HAPP pipeline</h2>
-<section id="installation" class="level3">
-<h3 class="anchored" data-anchor-id="installation">Installation</h3>
-<p>Install the HAPP pipeline by cloning the repository somewhere on Dardel:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone git@github.com:insect-biome-atlas/happ.git</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>this will create a directory called <code>happ</code> in your current working directory. Change into the <code>happ</code> directory with <code>cd happ</code>.</p>
-</section>
-<section id="choosing-a-branch-or-release" class="level3">
-<h3 class="anchored" data-anchor-id="choosing-a-branch-or-release">Choosing a branch or release</h3>
-<p>By default the pipeline will use the latest commit from the <code>main</code> branch. To instead use the <code>devel</code> branch, run:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> switch devel</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>To use a specific release, switch to the corresponding tag (you can see available tags at https://github.com/insect-biome-atlas/happ/tags). For example, to use release v2.1:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> switch <span class="at">--detach</span> v2.1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="set-up-the-environment" class="level3">
-<h3 class="anchored" data-anchor-id="set-up-the-environment">Set up the environment</h3>
-<p>The software required for running the workflow can be installed with either <code>pixi</code> or <code>conda</code>.</p>
-<p>To install and activate the software environment with <code>pixi</code>, run:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pixi</span> shell</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>To install with conda, run:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> envs</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> env create <span class="at">-f</span> environment.yml <span class="at">-p</span> envs/happ</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>This will create a conda environment called <code>happ</code> in the <code>envs</code> directory. Activate the environment with:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> activate envs/happ</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Next load the apptainer module:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load PDC apptainer</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-</section>
-<section id="configuring" class="level2">
-<h2 class="anchored" data-anchor-id="configuring">Configuring</h2>
-<p>The default configuration of the pipeline is found in file <code>config/config.yml</code>. To configure the pipeline for your specific needs, copy this file to a new file inside the <code>config/</code> subdirectory, <em>e.g.</em> <code>config/config_myproject.yml</code>. Edit this file to suit your needs.</p>
-</section>
-<section id="input" class="level2">
-<h2 class="anchored" data-anchor-id="input">Input</h2>
-<p>The pipeline requires two input files as minimum:</p>
-<ol type="1">
-<li>A fasta file with ASV sequences, and</li>
-<li>A file with counts of each ASV in each sample.</li>
-</ol>
-<p>Both files must be tab-separated with the first column containing the ASV ids. Place these files in a subfolder of the <code>data/</code> directory, <em>e.g.</em> <code>data/myproject/</code> and name them <code>asv_seqs.fasta</code> and <code>asv_counts.tsv</code>, respectively.</p>
-<p>Then edit the <code>rundir</code> parameter of your configuration file so that it matches the name of the subdirectory under <code>data/</code> where you placed the input files (in the example above it would be <code>myproject</code>).</p>
+<section id="directory-structure" class="level2">
+<h2 class="anchored" data-anchor-id="directory-structure">Directory structure</h2>
+<p>The following is a suggested directory structure for your work on Dardel. The <code>projects/</code> directory could contain subdirectories for analysis of each new sequencing batch. The actual raw data for the sequencing should be stored under the <code>raw_data/</code> directory (and this data should also have a backup outside of Dardel). Within each batch subdirectory you could create directories <code>amplicon-multi-cutadapt</code> and <code>ampliseq</code> for the output of the respective pipelines.</p>
+<p>Taking the P30904 batch as an example, the directory structure could look like this:</p>
+<pre><code>projects/
+  ├── P30904/
+  │   ├── amplicon-multi-cutadapt/
+  │   │   ├── results/
+  │   │   │   ├── cutadapt/
+  │   │   │   │   ├── P30904*_s4_R*.fastq.gz # Trimmed fastq files for each sample
+  │   │   ├── ampliseq_sample_sheet.tsv # Sample sheet for Ampliseq pipeline
+  │   ├── ampliseq/
+  │   │   ├── results/
+  │   │     ├── codon_filter/
+  │   │         ├── ASV_codon_filtered.fna # ASV sequences after dada2, length filtering and codon filtering
+  │   │         ├── ASV_codon_filtered.table.tsv # Counts for filtered ASVs</code></pre>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -702,11 +712,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./ampliseq.html" class="pagination-link" aria-label="Ampliseq pipeline">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Ampliseq pipeline</span>
+      <a href="./index.html" class="pagination-link" aria-label="Home">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Home</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="./workflows.html" class="pagination-link" aria-label="Workflows">
+        <span class="nav-page-text">Workflows</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->
