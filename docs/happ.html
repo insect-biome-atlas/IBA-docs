@@ -65,6 +65,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./ampliseq.html" rel="prev">
+<link href="./logo.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -188,8 +189,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#installation" id="toc-installation" class="nav-link active" data-scroll-target="#installation">Installation</a>
   <ul class="collapse">
   <li><a href="#central-installation-on-dardel" id="toc-central-installation-on-dardel" class="nav-link" data-scroll-target="#central-installation-on-dardel">Central installation on Dardel</a></li>
-  <li><a href="#choosing-a-branch-or-release" id="toc-choosing-a-branch-or-release" class="nav-link" data-scroll-target="#choosing-a-branch-or-release">Choosing a branch or release</a></li>
-  <li><a href="#set-up-the-environment" id="toc-set-up-the-environment" class="nav-link" data-scroll-target="#set-up-the-environment">Set up the environment</a></li>
+  <li><a href="#from-github" id="toc-from-github" class="nav-link" data-scroll-target="#from-github">From GitHub</a></li>
   </ul></li>
   <li><a href="#configuring" id="toc-configuring" class="nav-link" data-scroll-target="#configuring">Configuring</a></li>
   <li><a href="#input" id="toc-input" class="nav-link" data-scroll-target="#input">Input</a></li>
@@ -236,36 +236,68 @@ Note
 <p>As mentioned in the <a href="./workflows.html">Workflows</a> section you should first install Pixi to be able to use the centrally installed workflows for this project.</p>
 </div>
 </div>
-<p>Activate the pixi <code>happ</code> environment:</p>
+<ol type="1">
+<li>Activate the pixi <code>happ</code> environment:</li>
+</ol>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pixi</span> shell <span class="at">-e</span> happ <span class="at">--manifest-path</span> /cfs/klemming/projects/snic/snic2020-16-248/pixi.toml</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Install the HAPP pipeline by cloning the repository somewhere on Dardel:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone git@github.com:insect-biome-atlas/happ.git</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>All necessary software (including Apptainer) should now be available.</p>
+<ol start="2" type="1">
+<li>Create and navigate to a directory where you want to run HAPP, <em>e.g.</em>:</li>
+</ol>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> <span class="at">-p</span> projects/myproject</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> projects/myproject</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="3" type="1">
+<li>Create a default configuration file</li>
+</ol>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">happ</span> config <span class="op">&gt;</span> config.yml</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="4" type="1">
+<li><p>Make any edits you need in <code>config.yml</code> (see <a href="#configuring">Configuring</a> below).</p></li>
+<li><p>Run the workflow:</p></li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Did you remember the terminal multiplexer?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>To avoid interruptions due to connection failure to Dardel it is recommended to run a terminal multiplexer on the server. See <a href="./dardel.html#use-a-terminal-multiplexer">here</a> for more info.</p>
+</div>
+</div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">happ</span> run <span class="at">--config</span> config.yml <span class="at">--sdm</span><span class="op">=</span>apptainer</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="from-github" class="level3">
+<h3 class="anchored" data-anchor-id="from-github">From GitHub</h3>
+<p>If you prefer to get the HAPP pipeline directly from GitHub you should run:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone git@github.com:insect-biome-atlas/happ.git</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>this will create a directory called <code>happ</code> in your current working directory. Change into the <code>happ</code> directory with <code>cd happ</code>.</p>
-</section>
-<section id="choosing-a-branch-or-release" class="level3">
-<h3 class="anchored" data-anchor-id="choosing-a-branch-or-release">Choosing a branch or release</h3>
+<section id="choosing-a-branch-or-release" class="level4">
+<h4 class="anchored" data-anchor-id="choosing-a-branch-or-release">Choosing a branch or release</h4>
 <p>By default the pipeline will use the latest commit from the <code>main</code> branch. To instead use the <code>devel</code> branch, run:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> switch devel</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> switch devel</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>To use a specific release, switch to the corresponding tag (you can see available tags at https://github.com/insect-biome-atlas/happ/tags). For example, to use release v2.1:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> switch <span class="at">--detach</span> v2.1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> switch <span class="at">--detach</span> v2.1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="set-up-the-environment" class="level3">
-<h3 class="anchored" data-anchor-id="set-up-the-environment">Set up the environment</h3>
+<section id="set-up-the-environment" class="level4">
+<h4 class="anchored" data-anchor-id="set-up-the-environment">Set up the environment</h4>
 <p>The software required for running the workflow can be installed with either <code>pixi</code> or <code>conda</code>.</p>
 <p>To install and activate the software environment with <code>pixi</code>, run:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pixi</span> shell</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pixi</span> shell</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>To install with conda, run:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> envs</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> env create <span class="at">-f</span> environment.yml <span class="at">-p</span> envs/happ</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> envs</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> env create <span class="at">-f</span> environment.yml <span class="at">-p</span> envs/happ</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>This will create a conda environment called <code>happ</code> in the <code>envs</code> directory. Activate the environment with:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> activate envs/happ</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> activate envs/happ</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Next load the apptainer module:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load PDC apptainer</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load PDC apptainer</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
 </section>
 </section>
 <section id="configuring" class="level2">
 <h2 class="anchored" data-anchor-id="configuring">Configuring</h2>
-<p>The default configuration of the pipeline is found in file <code>config/config.yml</code>. To configure the pipeline for your specific needs, copy this file to a new file inside the <code>config/</code> subdirectory, <em>e.g.</em> <code>config/config_myproject.yml</code>. Edit this file to suit your needs.</p>
 </section>
 <section id="input" class="level2">
 <h2 class="anchored" data-anchor-id="input">Input</h2>
